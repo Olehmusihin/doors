@@ -28,8 +28,9 @@ $(function () {
     //определение размеров картинки двери
     var doorWidth = 0;
     var doorHeight = 0;
-    setTimeout(getImageParams, 1000);
-    setTimeout(getGlassParams, 1000);
+    setTimeout(getImageParams, 500);
+    setTimeout(getGlassParams, 750);
+    setTimeout(getColorParams, 1000);
 
     // добавление текста к надписям и в скрытые поля формы.
     var glassText = ''; // название цвета (текст);
@@ -228,6 +229,22 @@ $(function () {
         })
         if (glasses.length > 0) {
             glass = Math.min.apply(Math,glasses);
+        }
+    }
+
+    function getColorParams() {
+        let colors = [];
+        $('a').each(function (i, d) {
+            if (d.href.indexOf('#doorColor') != -1) {
+                let colorParams = d.href.replace('?','').split('&');
+                let currentColorParam = +findRegularNumber(colorParams[0]);
+                if ($.isNumeric(currentColorParam)) {
+                    colors.push(currentColorParam);
+                }
+            }
+        })
+        if (colors.length > 0) {
+            color = Math.min.apply(Math,colors);
         }
     }
     
