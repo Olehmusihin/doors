@@ -74,7 +74,7 @@ $(function () {
             removeBorders(e);
             addBorder(e);
             findImageNumber(e); //
-            addDoorImage(door, color, glass); // add image
+            addDoorImage(door, color, glass, baguette, molding, edge); // add image
             addDoorText(doorText); // add door text
             addGlassText(glassText); // add glass text
             addMoldingText(moldingText); // add glass text
